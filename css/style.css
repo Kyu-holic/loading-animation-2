@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading {
+    border: 1px solid red;
+    height: 60px;
+    width: 60px;
+    position: relative;
+}
+
+.loading span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    top: 0;
+    left: 0;
+    /*
+    이번에는 부드러운 느낌을 없애기 위해
+    linear를 사용하지 않는다 
+    */
+    animation: loading 1.5s infinite;
+}
+
+.loading span:nth-child(1) {
+    background-color: crimson;
+}
+.loading span:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+@keyframes loading {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    /* left로 했으면 right가 아니라 left로 좌표를 잡아줘야 함. */
+    25% {
+        top: 0;
+        left: calc(100% - 20px);
+        background-color: dodgerblue;
+    }
+    50% {
+        top: calc(100% - 20px);
+        left: calc(100% - 20px);
+        background-color: orange;
+    }
+    75% {
+        top: calc(100% - 20px);
+        left: 0;
+        background-color: yellowgreen;
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
